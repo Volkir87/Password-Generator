@@ -1,8 +1,10 @@
 /* main.js
 Created by: Kirill Volodkin
 Date: 2019-09-29
-The purpose of the script is to prompt user about all password criteria, and 
+The purpose of the script is to add functionality to two buttons on a page:
+Button "Generate Password" will prompt user about all password criteria, and 
 having received the answers, generate the password corresponding to the criteria selected
+Button "Copy to clipboard" will copy the password from text area into clipboard
 */
 
 // functions to get and validate user input. If user input does not pass validation, notify user and try again
@@ -50,7 +52,7 @@ var generateCharSet = function (types) {
 var generatePwd = function (pwdLength, charSet) {
     pwd = '';
     for (i = 0; i <= pwdLength - 1; i++) {
-        pwd = pwd + charSet[Math.floor(Math.random() * charSet.length)];
+        pwd = pwd + charSet[Math.floor(Math.random() * charSet.length)]; //getting a random element of a character set
     }
     return pwd;
 }
@@ -67,7 +69,6 @@ var buttonGeneratePwd = function () {
 
 var buttonCopy = function () {
     var output = document.getElementById("output");
-    console.log(output);
     output.select();
     output.setSelectionRange(0, 99999); //for mobile devices
     document.execCommand("copy");
