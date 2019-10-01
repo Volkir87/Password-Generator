@@ -55,21 +55,31 @@ var generatePwd = function (pwdLength, charSet) {
     return pwd;
 }
 
-// calling the functions to get and validate user input
+// functions for buttons
 
-pwdLength = inputLength();
-types = confirmTypes();
+var buttonGeneratePwd = function () {
+    pwdLength = inputLength();
+    types = confirmTypes();
+    charSet = generateCharSet(types);
+    pwd = generatePwd (pwdLength, charSet);
+    document.getElementById("output").innerHTML = pwd;
+}
 
-// // testing area
-// console.log("AllDone");
-// console.log(pwdLength);
-// console.log(types);
+var buttonCopy = function () {
+    var output = document.getElementById("output");
+    console.log(output);
+    output.select();
+    output.setSelectionRange(0, 99999); //for mobile devices
+    document.execCommand("copy");
+    window.alert("Password copied to the clipboard!");
+}
 
-charSet = generateCharSet(types);
-pwd = generatePwd(pwdLength, charSet);
+// actual code of the page
 
-// // testing area
-// console.log("AllDone 2");
-// console.log(pwd);
+document.getElementById("generate_button").onclick = buttonGeneratePwd;
 
-document.getElementById("output").innerHTML = pwd;
+document.getElementById("copy_button").onclick = buttonCopy;
+
+
+
+

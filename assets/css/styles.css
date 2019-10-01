@@ -81,7 +81,7 @@ main {
     border-bottom: #DDDDDD 2px solid;
 }
 
-output {
+#output {
     height: 10rem;
     border: #DDDDDD dashed;
     border-radius: 10px;
@@ -92,6 +92,9 @@ output {
     margin: 1% 5% 1% 5%;
     color: #555555;
     font-family: 'Consolas', 'Times New Roman', Times, serif;
+    font-size: 16px;
+    text-align: center;
+    resize: none;
     padding: 2%; 
 }
 
