@@ -62,7 +62,7 @@ var generatePwd = function (pwdLength, charSet, types) {
         return pwd;
     }
     else {
-        return generatePwd();
+        return generatePwd(pwdLength, charSet, types);
     }
 }
 // validation function for a password
